@@ -153,7 +153,7 @@ function initContactForm() {
         
         // Get form data
         const name = document.getElementById('name').value.trim();
-        const mobile = document.getElementById('mobile').value.trim();
+        const mobile_number = document.getElementById('mobile').value.trim();
         
         // Validate
         if (!name) {
@@ -161,7 +161,7 @@ function initContactForm() {
             return;
         }
         
-        if (!validateMobile(mobile)) {
+        if (!validateMobile(mobile_number)) {
             showMessage('Please enter a valid 10-digit mobile number', 'error');
             return;
         }
@@ -182,7 +182,7 @@ function initContactForm() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name, mobile })
+                body: JSON.stringify({ name, mobile_number })
             });
             
             const data = await response.json();
@@ -214,8 +214,8 @@ function initContactForm() {
         }, 5000);
     }
     
-    function validateMobile(mobile) {
-        const cleanMobile = mobile.replace(/[^0-9]/g, '');
+    function validateMobile(mobile_number) {
+        const cleanMobile = mobile_number.replace(/[^0-9]/g, '');
         if (cleanMobile.length !== 10) return false;
         if (!['6', '7', '8', '9'].includes(cleanMobile[0])) return false;
         return true;
