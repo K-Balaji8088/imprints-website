@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Imprints - The Design Studio. Premium interior design services in Hyderabad. Transform your space with our expert design solutions.">
+    <meta name="keywords" content="interior design, modular kitchen, home renovation, bedroom design, living room design, Hyderabad">
+    <meta name="author" content="Imprints - The Design Studio">
+    <meta property="og:title" content="Imprints - The Design Studio">
+    <meta property="og:description" content="Transform your space with premium interior design solutions">
+    <meta property="og:type" content="website">
+    <title>Imprints - The Design Studio | Premium Interior Design</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Spinner -->
+    <div id="loader" class="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Sticky Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='images/Company Logo.jpg') }}" alt="Imprints Logo">
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="hero-logo">
+                    <img src="{{ url_for('static', filename='images/Company Logo.jpg') }}" alt="Imprints Logo">
+                </div>
+                <h1 class="hero-title">IMPRINTS</h1>
+                <p class="hero-subtitle">The Design Studio</p>
+                <p class="hero-tagline">Crafting Spaces, Creating Memories</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">Explore Our Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    <a href="https://wa.me/918088993323?text=Hello%20Imprints,%20I%20am%20interested%20in%20your%20services." target="_blank" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Explore our portfolio of stunning transformations</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card fade-in-up">
+                    <div class="project-image">
+                        <img data-src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&h=600&fit=crop" alt="Modern Living Room" class="lazy">
+                        <div class="project-overlay">
+                            <h3>Modern Living Space</h3>
+                            <p>Contemporary design with warm tones</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card fade-in-up">
+                    <div class="project-image">
+                        <img data-src="https://www.livehomes.in/crm/public/image/blogs/1387843721716786872.jpg" alt="Modular Kitchen" class="lazy">
+                        <div class="project-overlay">
+                            <h3>Luxury Modular Kitchen</h3>
+                            <p>Functional elegance meets style</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card fade-in-up">
+                    <div class="project-image">
+                        <img data-src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&h=600&fit=crop" alt="Master Bedroom" class="lazy">
+                        <div class="project-overlay">
+                            <h3>Serene Master Bedroom</h3>
+                            <p>Your personal sanctuary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card fade-in-up">
+                    <div class="project-image">
+                        <img data-src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop" alt="Dining Area" class="lazy">
+                        <div class="project-overlay">
+                            <h3>Elegant Dining Space</h3>
+                            <p>Where families gather</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card fade-in-up">
+                    <div class="project-image">
+                        <img data-src="https://cdn.decorilla.com/online-decorating/wp-content/uploads/2024/08/Home-office-trends-2025-by-Decorilla-1024x683.jpg?width=900" alt="Home Office" class="lazy">
+                        <div class="project-overlay">
+                            <h3>Productive Home Office</h3>
+                            <p>Work in style and comfort</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card fade-in-up">
+                    <div class="project-image">
+                        <img data-src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&h=600&fit=crop" alt="Kids Room" class="lazy">
+                        <div class="project-overlay">
+                            <h3>Playful Kids Room</h3>
+                            <p>Where imagination comes alive</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card fade-in-up">
+                    <div class="project-image">
+                        <img data-src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop" alt="Modern Bathroom" class="lazy">
+                        <div class="project-overlay">
+                            <h3>Spa-Like Bathroom</h3>
+                            <p>Luxury in every detail</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card fade-in-up">
+                    <div class="project-image">
+                        <img data-src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&h=600&fit=crop" alt="Open Floor Plan" class="lazy">
+                        <div class="project-overlay">
+                            <h3>Open Concept Living</h3>
+                            <p>Seamless flow and space</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card fade-in-up">
+                    <div class="project-image">
+                        <img data-src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop" alt="Minimalist Design" class="lazy">
+                        <div class="project-overlay">
+                            <h3>Minimalist Elegance</h3>
+                            <p>Less is more</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card fade-in-up">
+                    <div class="project-image">
+                        <img data-src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&h=600&fit=crop" alt="Traditional Design" class="lazy">
+                        <div class="project-overlay">
+                            <h3>Classic Traditional</h3>
+                            <p>Timeless beauty</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card fade-in-up">
+                    <div class="project-image">
+                        <img data-src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=800&h=600&fit=crop" alt="Balcony Design" class="lazy">
+                        <div class="project-overlay">
+                            <h3>Urban Balcony Oasis</h3>
+                            <p>Your outdoor retreat</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card fade-in-up">
+                    <div class="project-image">
+                        <img data-src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&h=600&fit=crop" alt="Luxury Apartment" class="lazy">
+                        <div class="project-overlay">
+                            <h3>Luxury Apartment</h3>
+                            <p>Sophisticated living redefined</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After Showcase -->
+    <section class="section before-after">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">Transformations</h2>
+                <p class="section-subtitle">See the magic of our design process</p>
+            </div>
+            <div class="ba-container">
+                <div class="ba-item fade-in-up">
+                    <div class="ba-toggle">
+                        <button class="ba-btn active" data-view="before">Before</button>
+                        <button class="ba-btn" data-view="after">After</button>
+                    </div>
+                    <div class="ba-images">
+                        <img src="static/images/before bedroom.jpeg" class="ba-image active" data-type="before">
+                        <img src="static/images/after bedroom.jpeg" class="ba-image" data-type="after">
+                    </div>
+                    <p class="ba-caption">Living Room Transformation</p>
+                </div>
+                <div class="ba-item fade-in-up">
+                    <div class="ba-toggle">
+                        <button class="ba-btn active" data-view="before">Before</button>
+                        <button class="ba-btn" data-view="after">After</button>
+                    </div>
+                    <div class="ba-images">
+                        <img src="static/images/before pooja unit.jpeg" class="ba-image active" data-type="before">
+                        <img src="static/images/after pooja unit.jpeg" class="ba-image" data-type="after">
+                    </div>
+                    <p class="ba-caption">Kitchen Renovation</p>
+                </div>
+                <div class="ba-item fade-in-up">
+                    <div class="ba-toggle">
+                        <button class="ba-btn active" data-view="before">Before</button>
+                        <button class="ba-btn" data-view="after">After</button>
+                    </div>
+                    <div class="ba-images">
+                        <img src="static/images/before bedroom.jpeg" class="ba-image active" data-type="before">
+                        <img src="static/images/after bedroom.jpeg" class="ba-image" data-type="after">
+                    </div>
+                    <p class="ba-caption">Bedroom Makeover</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section services">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive design solutions for every space</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-roller"></i>
+                    </div>
+                    <h3>Interior Design</h3>
+                    <p>Complete interior design solutions tailored to your lifestyle and preferences. We create spaces that reflect your personality.</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">
+                        <i class="fas fa-blender"></i>
+                    </div>
+                    <h3>Modular Kitchen</h3>
+                    <p>Functional and stylish modular kitchens designed for modern living. Smart storage solutions and premium finishes.</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3>Living Room Design</h3>
+                    <p>Create a welcoming living space where comfort meets elegance. Perfect for entertaining and relaxation.</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <h3>Bedroom Design</h3>
+                    <p>Transform your bedroom into a peaceful retreat. Custom designs that promote rest and rejuvenation.</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <h3>Renovation</h3>
+                    <p>Complete home renovation services. We breathe new life into old spaces with modern design and functionality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="section gallery">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">Gallery</h2>
+                <p class="section-subtitle">Browse our collection of beautiful spaces</p>
+            </div>
+            <div class="gallery-tabs">
+                <button class="gallery-tab active" data-category="all">All</button>
+                <button class="gallery-tab" data-category="final">Final Images</button>
+                <button class="gallery-tab" data-category="transformation">Transformations</button>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in-up" data-category="final">
+                    <img data-src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&h=600&fit=crop" alt="Gallery 1" class="lazy">
+                </div>
+                <div class="gallery-item fade-in-up" data-category="final">
+                    <img data-src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=600&h=600&fit=crop" alt="Gallery 2" class="lazy">
+                </div>
+                <div class="gallery-item fade-in-up" data-category="transformation">
+                    <img data-src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&h=600&fit=crop" alt="Gallery 3" class="lazy">
+                </div>
+                <div class="gallery-item fade-in-up" data-category="final">
+                    <img data-src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600&h=600&fit=crop" alt="Gallery 4" class="lazy">
+                </div>
+                <div class="gallery-item fade-in-up" data-category="transformation">
+                    <img data-src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=600&fit=crop" alt="Gallery 5" class="lazy">
+                </div>
+                <div class="gallery-item fade-in-up" data-category="final">
+                    <img data-src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=600&h=600&fit=crop" alt="Gallery 6" class="lazy">
+                </div>
+                <div class="gallery-item fade-in-up" data-category="final">
+                    <img data-src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=600&h=600&fit=crop" alt="Gallery 7" class="lazy">
+                </div>
+                <div class="gallery-item fade-in-up" data-category="transformation">
+                    <img data-src="https://images.unsplash.com/photo-1600566753151-384129cf4e3e?w=600&h=600&fit=crop" alt="Gallery 8" class="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section testimonials">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-subtitle">Real experiences from real people</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in-up">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Imprints transformed our home beautifully. Their attention to detail and creative vision exceeded our expectations. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <h4>Priya Sharma</h4>
+                        <p>Banjara Hills</p>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in-up">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Professional team, excellent execution, and stunning results. Our modular kitchen is both functional and gorgeous. Thank you, Imprints!"</p>
+                    <div class="testimonial-author">
+                        <h4>Rajesh Kumar</h4>
+                        <p>Jubilee Hills</p>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in-up">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"From concept to completion, Imprints handled everything perfectly. Our living room now feels like a luxury hotel. Worth every penny!"</p>
+                    <div class="testimonial-author">
+                        <h4>Sneha Reddy</h4>
+                        <p>Gachibowli</p>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in-up">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Amazing work on our bedroom renovation. They understood our vision and brought it to life with precision. Fantastic experience!"</p>
+                    <div class="testimonial-author">
+                        <h4>Arjun Patel</h4>
+                        <p>Madhapur</p>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in-up">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Imprints made our dream home a reality. Their creativity and professionalism are unmatched. We couldn't be happier with the results!"</p>
+                    <div class="testimonial-author">
+                        <h4>Meera Iyer</h4>
+                        <p>Kondapur</p>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in-up">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Exceptional service and beautiful designs. The team listened to our needs and delivered beyond expectations. Highly professional!"</p>
+                    <div class="testimonial-author">
+                        <h4>Vikram Mehta</h4>
+                        <p>Hitech City</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Let's start creating your dream space</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-form-container fade-in-up">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number *</label>
+                            <input type="tel" id="mobile" name="mobile" required placeholder="10-digit mobile number" pattern="[6-9][0-9]{9}" maxlength="10">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span class="btn-text">Submit</span>
+                            <span class="btn-loader" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </span>
+                        </button>
+                    </form>
+                    <div id="formMessage" class="form-message"></div>
+                </div>
+                <div class="contact-map fade-in-up">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.9964089856847!2d78.44320337516632!3d17.418534383495926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb970018024a7b%3A0x94e7b853ac4429c4!2sIMPRINTS%20The%20Design%20Studio!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" 
+                            width="100%" 
+                            height="350" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="{{ url_for('static', filename='images/Company Logo.jpg') }}" alt="Imprints Logo">
+                    <p>Crafting Spaces, Creating Memories</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/share/1Bk3jSfwGw/" aria-label="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Imprints - The Design Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/918088993323?text=Hello%20Imprints,%20I%20am%20interested%20in%20your%20services." 
+       class="whatsapp-float" 
+       target="_blank" 
+       aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Chatbot -->
+    <div class="chatbot" id="chatbot">
+        <div class="chatbot-header">
+            <h4>Chat with us</h4>
+            <button class="chatbot-close" id="chatbotClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                <p>Hello! I'm here to help. Ask me about our services, pricing, or how to get started!</p>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type your message...">
+            <button id="chatbotSend">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+    <button class="chatbot-trigger" id="chatbotTrigger">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
