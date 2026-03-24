@@ -101,35 +101,6 @@ def create_app() -> Flask:
             # Error will be surfaced when attempting to use the DB.
             pass
 
-    def validate_name(name):
-        """Validate name input"""
-        if not name or len(name.strip()) == 0:
-            return False
-        if len(name) > 255:
-            return False
-        return True
-
-    def validate_mobile(mobile):
-        """Validate mobile number (exactly 10 digits)"""
-        if not mobile:
-            return False
-        # Remove any spaces or special characters
-        mobile_clean = re.sub(r'[^0-9]', '', mobile)
-        # Check if exactly 10 digits
-        if len(mobile_clean) != 10:
-            return False
-        # Check if starts with valid Indian mobile digit (6-9)
-        if mobile_clean[0] not in ['6', '7', '8', '9']:
-            return False
-        return True
-
-    def sanitize_input(text):
-        """Sanitize input to prevent SQL injection"""
-        if not text:
-            return ""
-        # Remove potentially harmful characters
-        return re.sub(r'[<>\"\'%;()&+]', '', text.strip())
-
     @app.route('/')
     def index():
         """Serve homepage"""
@@ -218,10 +189,6 @@ def create_app() -> Flask:
             errors["mobile_number"] = "Mobile number is required."
         elif not mobile_number.isdigit() or len(mobile_number) != 10:
             errors["mobile_number"] = "Mobile number must be exactly 10 digits."
-    
-        # Sanitize inputs
-        name = sanitize_input(name)
-        mobile = re.sub(r'[^0-9]', '', mobile)
         
         try:
             pool = get_db_pool()
