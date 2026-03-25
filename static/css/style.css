@@ -5,6 +5,26 @@
     box-sizing: border-box;
 }
 
+/* Mobile devices */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
 :root {
     /* Colors */
     --primary-gold: #C9A961;
