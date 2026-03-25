@@ -180,7 +180,8 @@ function initContactForm() {
             const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
                 body: JSON.stringify({ name, mobile_number })
             });
@@ -257,7 +258,8 @@ function initChatbot() {
             const response = await fetch('/api/chat', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
                 body: JSON.stringify({ message })
             });
@@ -385,7 +387,7 @@ window.addEventListener('resize', debounce(() => {
 // Preload critical images
 function preloadImages() {
     const criticalImages = [
-        '/static/images/logo.jpg'
+        '/static/images/Company Logo.jpg'
     ];
     
     criticalImages.forEach(src => {

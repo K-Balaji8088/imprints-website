@@ -90,6 +90,27 @@ def create_app() -> Flask:
         finally:
             conn.close()
 
+    # ✅ MOBILE FIX: Add CORS headers for mobile compatibility
+    @app.after_request
+    def after_request(response):
+        """Add headers for mobile compatibility and security"""
+        # CORS headers - allow all origins for mobile access
+        response.headers['Access-Control-Allow-Origin'] = '*'
+        response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS'
+        response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization, X-Requested-With'
+        response.headers['Access-Control-Max-Age'] = '3600'
+        
+        # Security headers
+        response.headers['X-Content-Type-Options'] = 'nosniff'
+        response.headers['X-Frame-Options'] = 'SAMEORIGIN'
+        response.headers['X-XSS-Protection'] = '1; mode=block'
+        
+        # Cache control for static assets
+        if request.path.startswith('/static/'):
+            response.headers['Cache-Control'] = 'public, max-age=31536000'
+        
+        return response
+
     @app.before_request
     def ensure_db():
         """
@@ -107,10 +128,15 @@ def create_app() -> Flask:
         return render_template('index.html')
 
     
-    @app.route('/api/chat', methods=['POST'])
+    # ✅ MOBILE FIX: Added OPTIONS method support
+    @app.route('/api/chat', methods=['POST', 'OPTIONS'])
     @limiter.limit("10 per minute")
     def chat():
         """Handle chatbot queries"""
+        # ✅ MOBILE FIX: Handle preflight OPTIONS request
+        if request.method == 'OPTIONS':
+            return '', 204
+            
         try:
             data = request.get_json()
             message = data.get('message', '').lower().strip()
@@ -119,7 +145,7 @@ def create_app() -> Flask:
             responses = {
                 'pricing': {
                     'keywords': ['price', 'pricing', 'cost', 'budget', 'charge', 'rate', 'fees', 'expensive', 'affordable'],
-                    'response': 'Our pricing varies based on project size and requirements. Please contact us at +91-XXXXXXXXXX for a detailed quote, or use the contact form to discuss your specific needs.'
+                    'response': 'Our pricing varies based on project size and requirements. Please contact us at +91-8088993323 for a detailed quote, or use the contact form to discuss your specific needs.'
                 },
                 'services': {
                     'keywords': ['service', 'services', 'what do you do', 'offerings', 'provide', 'design', 'interior'],
@@ -173,9 +199,14 @@ def create_app() -> Flask:
             'message': 'Too many requests. Please try again later.'
         }), 429
 
-    @app.route('/api/contact', methods=['POST'])
+    # ✅ MOBILE FIX: Added OPTIONS method support
+    @app.route('/api/contact', methods=['POST', 'OPTIONS'])
     @limiter.limit("5 per minute")
     def api_contact():
+        # ✅ MOBILE FIX: Handle preflight OPTIONS request
+        if request.method == 'OPTIONS':
+            return '', 204
+            
         data = request.get_json(silent=True) or {}
         name = (data.get("name") or "").strip()
         mobile_number = (data.get("mobile_number") or "").strip()
@@ -190,14 +221,22 @@ def create_app() -> Flask:
         elif not mobile_number.isdigit() or len(mobile_number) != 10:
             errors["mobile_number"] = "Mobile number must be exactly 10 digits."
         
+        # ✅ Return validation errors if any
+        if errors:
+            return jsonify({
+                "success": False,
+                "message": "Validation failed",
+                "errors": errors
+            }), 400
+        
         try:
             pool = get_db_pool()
             conn = pool.get_connection()
             with conn.cursor() as cur:
                 ist_time = datetime.utcnow() + timedelta(hours=5, minutes=30)
                 cur.execute(
-                    "INSERT INTO contacts (name, mobile_number,submitted_at) VALUES (%s, %s, %s)",
-                    (name, mobile_number,ist_time),
+                    "INSERT INTO contacts (name, mobile_number, submitted_at) VALUES (%s, %s, %s)",
+                    (name, mobile_number, ist_time),
                 )
                 conn.commit()
         except MySQLError as e:
@@ -218,6 +257,12 @@ def create_app() -> Flask:
                 pass
 
         return jsonify({"success": True, "message": "Thank you! We will contact you soon."})
+    
+    # ✅ MOBILE FIX: Add health check endpoint for Railway
+    @app.route('/health')
+    def health():
+        """Health check endpoint"""
+        return jsonify({'status': 'healthy'}), 200
     
     return app
 
